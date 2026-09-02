@@ -3,9 +3,11 @@ package id.my.hiemz.wms;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.graphics.Bitmap;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.webkit.JsResult;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -17,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String HOME_URL = "https://wh.hiemz.my.id/index.php";
+    private static final String HOME_URL = "https://wh-rpa-cikupa.my.id/index.php";
     private WebView webView;
     private SwipeRefreshLayout swipe;
 
@@ -71,6 +73,11 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override public void onPageFinished(WebView v, String url) {
                 swipe.setRefreshing(false);
+            }
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                // wh-rpa chain 1 (tanpa intermediate) -> proceed biar internal tetap jalan
+                handler.proceed();
             }
             @Override public void onReceivedError(WebView v, WebResourceRequest req, WebResourceError err) {
                 if (req.isForMainFrame()) Toast.makeText(MainActivity.this, "Gagal load: cek internet", Toast.LENGTH_SHORT).show();
