@@ -1,9 +1,12 @@
 package id.my.hiemz.wms;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
@@ -32,12 +35,35 @@ public class MainActivity extends AppCompatActivity {
         s.setDomStorageEnabled(true);
         s.setDatabaseEnabled(true);
         s.setAllowFileAccess(true);
+        s.setJavaScriptCanOpenWindowsAutomatically(true);
         s.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
         s.setCacheMode(WebSettings.LOAD_DEFAULT);
         s.setUseWideViewPort(true);
         s.setLoadWithOverviewMode(true);
         s.setBuiltInZoomControls(false);
         s.setSupportZoom(false);
+
+        webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+                new AlertDialog.Builder(MainActivity.this)
+                    .setMessage(message)
+                    .setPositiveButton("OK", (d, w) -> result.confirm())
+                    .setCancelable(false)
+                    .show();
+                return true;
+            }
+            @Override
+            public boolean onJsConfirm(WebView view, String url, String message, JsResult result) {
+                new AlertDialog.Builder(MainActivity.this)
+                    .setMessage(message)
+                    .setPositiveButton("Ya", (d, w) -> result.confirm())
+                    .setNegativeButton("Batal", (d, w) -> result.cancel())
+                    .setCancelable(false)
+                    .show();
+                return true;
+            }
+        });
 
         webView.setWebViewClient(new WebViewClient() {
             @Override public void onPageStarted(WebView v, String url, Bitmap favicon) {
@@ -49,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
             @Override public void onReceivedError(WebView v, WebResourceRequest req, WebResourceError err) {
                 if (req.isForMainFrame()) Toast.makeText(MainActivity.this, "Gagal load: cek internet", Toast.LENGTH_SHORT).show();
             }
-            // buka semua link tetap di WebView (jangan lempar ke Chrome)
             @Override public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest req) { return false; }
         });
 
