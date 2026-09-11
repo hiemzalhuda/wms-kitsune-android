@@ -88,7 +88,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun tampilRekap() {
-        val j = if (tabKemarin) jYest else jToday ?: return
+        val j = (if (tabKemarin) jYest else jToday) ?: return
         val nf = NumberFormat.getNumberInstance(Locale("in", "ID")).apply { maximumFractionDigits = 0 }
         b.tvIn.text = nf.format(j.optDouble("in", 0.0))
         b.tvOut.text = nf.format(j.optDouble("out", 0.0))
