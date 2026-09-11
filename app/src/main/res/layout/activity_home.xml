@@ -3,16 +3,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F7FA"
+    android:background="@color/fino_bg"
     android:padding="12dp">
+    <!-- Hero greeting ala web -->
     <TextView
         android:id="@+id/tvSapa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Halo"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
+        android:textColor="@color/fino_text" />
+    <TextView
+        android:id="@+id/tvInfoStok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/fino_muted"
+        android:layout_marginBottom="10dp" />
+    <!-- Kartu menu ala web (Riwayat / Mode Web) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:id="@+id/cardRiwayat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_card"
+            android:padding="14dp"
+            android:text="📋 Riwayat"
+            android:textStyle="bold"
+            android:textColor="@color/fino_primary" />
+        <TextView
+            android:id="@+id/cardWeb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_card"
+            android:padding="14dp"
+            android:text="🌐 Mode Web"
+            android:textStyle="bold"
+            android:textColor="@color/fino_primary" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,50 +59,33 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Cari kode / nama..." />
+            android:hint="Cari kode / nama..."
+            android:background="@drawable/bg_input"
+            android:padding="12dp" />
         <Button
             android:id="@+id/btnCari"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cari"
-            android:backgroundTint="#089A83" />
+            android:backgroundTint="@color/fino_primary" />
     </LinearLayout>
     <ProgressBar
         android:id="@+id/loadHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:indeterminateTint="@color/fino_primary"
         android:visibility="gone" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvStok"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
-    <LinearLayout
+    <Button
+        android:id="@+id/btnOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
-        <Button
-            android:id="@+id/btnRiwayat"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Riwayat"
-            android:backgroundTint="#555555" />
-        <Button
-            android:id="@+id/btnWeb"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Mode Web"
-            android:backgroundTint="#555555" />
-        <Button
-            android:id="@+id/btnOut"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Keluar"
-            android:backgroundTint="#AA3333" />
-    </LinearLayout>
+        android:text="Keluar"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/fino_danger" />
 </LinearLayout>

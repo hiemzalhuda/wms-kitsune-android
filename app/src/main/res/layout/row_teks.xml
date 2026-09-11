@@ -3,7 +3,8 @@
     android:id="@+id/rowTeks"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFFFFF"
+    android:background="@drawable/bg_card"
     android:padding="12dp"
     android:layout_margin="4dp"
+    android:textColor="@color/fino_text"
     android:textSize="13sp" />

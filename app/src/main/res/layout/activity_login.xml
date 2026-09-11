@@ -2,30 +2,34 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FA"
+    android:background="@color/fino_bg"
     android:padding="24dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <!-- Brand ala web: JAPFA Food -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="WMS Kitsune"
-            android:textSize="26sp"
+            android:text="JAPFA Food"
+            android:textSize="30sp"
             android:textStyle="bold"
-            android:textColor="#089A83" />
+            android:textColor="@color/fino_primary" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Masuk pakai akun WMS"
-            android:layout_marginBottom="20dp" />
+            android:text="So Good Food Mfg. • WMS Kitsune"
+            android:textColor="@color/fino_muted"
+            android:layout_marginBottom="28dp" />
         <EditText
             android:id="@+id/etUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
             android:inputType="text"
+            android:background="@drawable/bg_input"
+            android:padding="14dp"
             android:layout_marginBottom="12dp" />
         <EditText
             android:id="@+id/etPass"
@@ -33,26 +37,30 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"
+            android:background="@drawable/bg_input"
+            android:padding="14dp"
             android:layout_marginBottom="20dp" />
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="MASUK"
-            android:backgroundTint="#089A83" />
+            android:textStyle="bold"
+            android:backgroundTint="@color/fino_primary" />
         <ProgressBar
             android:id="@+id/loadLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
+            android:indeterminateTint="@color/fino_primary"
             android:visibility="gone" />
         <TextView
             android:id="@+id/tvWeb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="atau buka mode web lama →"
-            android:textColor="#089A83"
+            android:textColor="@color/fino_primary"
             android:layout_gravity="center"
             android:layout_marginTop="24dp" />
     </LinearLayout>

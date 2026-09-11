@@ -1,10 +1,10 @@
 <resources>
     <style name="Theme.WMS" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#089A83</item>
-        <item name="colorPrimaryDark">#067a68</item>
-        <item name="colorAccent">#089A83</item>
-        <item name="android:statusBarColor">#089A83</item>
-        <item name="android:navigationBarColor">#ffffff</item>
+        <item name="colorPrimary">#75BF43</item>
+        <item name="colorPrimaryDark">#5EA332</item>
+        <item name="colorAccent">#75BF43</item>
+        <item name="android:statusBarColor">#75BF43</item>
+        <item name="android:navigationBarColor">#F4F7F0</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowBackground">@drawable/splash</item>
     </style>

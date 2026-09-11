@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="#FFFFFF"
+    android:background="@drawable/bg_card"
     android:padding="12dp"
     android:layout_margin="4dp">
     <LinearLayout
@@ -16,18 +16,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textColor="@color/fino_text" />
         <TextView
             android:id="@+id/rowSub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:textColor="@color/fino_muted" />
     </LinearLayout>
     <TextView
         android:id="@+id/rowQty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_badge"
         android:textStyle="bold"
-        android:textColor="#089A83"
-        android:textSize="14sp" />
+        android:textColor="@color/fino_primary_dark"
+        android:padding="8dp"
+        android:textSize="13sp" />
 </LinearLayout>

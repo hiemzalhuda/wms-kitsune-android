@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F7FA"
+    android:background="@color/fino_bg"
     android:padding="12dp">
     <TextView
         android:id="@+id/tvInfoRiwayat"
@@ -12,12 +12,14 @@
         android:text="Riwayat transaksi"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/fino_text"
         android:layout_marginBottom="8dp" />
     <ProgressBar
         android:id="@+id/loadRiwayat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:indeterminateTint="@color/fino_primary"
         android:visibility="gone" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRiwayat"

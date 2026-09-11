@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- FINO: samakan dengan tema web -->
+    <color name="fino_primary">#75BF43</color>
+    <color name="fino_primary_dark">#5EA332</color>
+    <color name="fino_primary_soft">#E6EEDB</color>
+    <color name="fino_accent">#E59824</color>
+    <color name="fino_bg">#F4F7F0</color>
+    <color name="fino_card">#FFFFFF</color>
+    <color name="fino_text">#1E2A1A</color>
+    <color name="fino_muted">#6B7F5E</color>
+    <color name="fino_danger">#E05D52</color>
+</resources>
