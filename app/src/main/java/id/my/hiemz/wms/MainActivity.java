@@ -14,6 +14,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String HOME_URL = "https://wh-rpa-cikupa.my.id/index.php";
     private WebView webView;
     private SwipeRefreshLayout swipe;
+    private ProgressBar loader;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         webView = findViewById(R.id.webview);
         swipe = findViewById(R.id.swipe);
+        loader = findViewById(R.id.loader);
 
         WebSettings s = webView.getSettings();
         s.setJavaScriptEnabled(true);
@@ -44,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         s.setLoadWithOverviewMode(true);
         s.setBuiltInZoomControls(false);
         s.setSupportZoom(false);
+        // Render halus di HP kentang (RAM 2-3GB): layer hardware + gambar prioritas
+        webView.setLayerType(android.view.View.LAYER_TYPE_HARDWARE, null);
+        s.setRenderPriority(WebSettings.RenderPriority.HIGH);
+        s.setEnableSmoothTransition(true);
 
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -69,10 +76,15 @@ public class MainActivity extends AppCompatActivity {
 
         webView.setWebViewClient(new WebViewClient() {
             @Override public void onPageStarted(WebView v, String url, Bitmap favicon) {
-                swipe.setRefreshing(true);
+                loader.setVisibility(android.view.View.VISIBLE);
             }
             @Override public void onPageFinished(WebView v, String url) {
                 swipe.setRefreshing(false);
+                // Loader hilang halus (fade-out 200ms) biar gak kedip kasar
+                loader.animate().alpha(0f).setDuration(200).withEndAction(() -> {
+                    loader.setVisibility(android.view.View.GONE);
+                    loader.setAlpha(1f);
+                }).start();
             }
             @Override
             public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
