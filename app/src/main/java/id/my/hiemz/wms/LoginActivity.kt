@@ -45,7 +45,8 @@ class LoginActivity : AppCompatActivity() {
                     getSharedPreferences("wms", Context.MODE_PRIVATE).edit()
                         .putString("token", token)
                         .putString("username", uname)
-                        .putString("role", role).apply()
+                        .putString("role", role)
+                        .putString("uid", h.data.optString("user_id", "")).apply()
                     masuk(uname, role)
                 } else {
                     Toast.makeText(this@LoginActivity, h.pesan, Toast.LENGTH_LONG).show()

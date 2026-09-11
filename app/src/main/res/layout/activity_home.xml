@@ -1,91 +1,357 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/fino_bg"
-    android:padding="12dp">
-    <!-- Hero greeting ala web -->
-    <TextView
-        android:id="@+id/tvSapa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Halo"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/fino_text" />
-    <TextView
-        android:id="@+id/tvInfoStok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/fino_muted"
-        android:layout_marginBottom="10dp" />
-    <!-- Kartu menu ala web (Riwayat / Mode Web) -->
+    android:background="@color/fino_bg">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp">
-        <TextView
-            android:id="@+id/cardRiwayat"
-            android:layout_width="0dp"
+        android:orientation="vertical">
+        <!-- Topbar -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="6dp"
-            android:background="@drawable/bg_card"
-            android:padding="14dp"
-            android:text="📋 Riwayat"
-            android:textStyle="bold"
-            android:textColor="@color/fino_primary" />
-        <TextView
-            android:id="@+id/cardWeb"
-            android:layout_width="0dp"
+            android:orientation="horizontal"
+            android:background="@color/fino_primary"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JAPFA Food"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tvTanggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="12sp"
+                    android:textColor="#E8F3E0" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/btnOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keluar"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#00000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="6dp"
-            android:background="@drawable/bg_card"
-            android:padding="14dp"
-            android:text="🌐 Mode Web"
-            android:textStyle="bold"
-            android:textColor="@color/fino_primary" />
+            android:orientation="vertical"
+            android:padding="16dp">
+            <!-- Hero sapaan -->
+            <TextView
+                android:id="@+id/tvSapa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Memuat..."
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/fino_text" />
+            <!-- Tombol cepat: Input Baru / Lihat Stok -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp">
+                <Button
+                    android:id="@+id/btnInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:text="＋ Input Baru"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="@color/fino_primary" />
+                <Button
+                    android:id="@+id/btnStok"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:text="Lihat Stok"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="@color/fino_primary" />
+            </LinearLayout>
+            <!-- Kata mutiara -->
+            <TextView
+                android:id="@+id/tvMutiara"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:padding="14dp"
+                android:text=""
+                android:textStyle="italic"
+                android:textColor="@color/fino_muted"
+                android:layout_marginBottom="12dp" />
+            <!-- Rekap operasional -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rekap Operasional"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/fino_text" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp">
+                <Button
+                    android:id="@+id/tabToday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Hari Ini"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="@color/fino_primary" />
+                <Button
+                    android:id="@+id/tabYest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kemarin"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="@color/fino_muted" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvRekapSub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KG Hari Ini"
+                android:textSize="12sp"
+                android:textColor="@color/fino_muted" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card"
+                    android:padding="12dp"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tvIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/fino_primary" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bongkar Masuk (IN)"
+                        android:textSize="11sp"
+                        android:textColor="@color/fino_muted"
+                        android:gravity="center" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card"
+                    android:padding="12dp"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tvOut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/fino_accent" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Muat Keluar (OUT)"
+                        android:textSize="11sp"
+                        android:textColor="@color/fino_muted"
+                        android:gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card"
+                    android:padding="12dp"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tvRak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/fino_text" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Naik / Turun Rak"
+                        android:textSize="11sp"
+                        android:textColor="@color/fino_muted"
+                        android:gravity="center" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card"
+                    android:padding="12dp"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tvLangsir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0x"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/fino_text" />
+                    <TextView
+                        android:id="@+id/tvLangsirKg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 KG"
+                        android:textSize="11sp"
+                        android:textColor="@color/fino_muted"
+                        android:gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+            <!-- Kendaraan -->
+            <LinearLayout
+                android:id="@+id/cardKendaraan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="14dp"
+                android:layout_marginTop="12dp"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kendaraan"
+                    android:textStyle="bold"
+                    android:textColor="@color/fino_text" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/tvKvTunggu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/fino_accent" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Menunggu"
+                            android:textSize="11sp"
+                            android:textColor="@color/fino_muted" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/tvKvProses"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/fino_primary" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Proses"
+                            android:textSize="11sp"
+                            android:textColor="@color/fino_muted" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/tvKvSelesai"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/fino_muted" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Selesai"
+                            android:textSize="11sp"
+                            android:textColor="@color/fino_muted" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- Menu bawah: Riwayat -->
+            <TextView
+                android:id="@+id/cardRiwayat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:padding="14dp"
+                android:layout_marginTop="12dp"
+                android:text="📋 Riwayat Transaksi →"
+                android:textStyle="bold"
+                android:textColor="@color/fino_primary" />
+            <ProgressBar
+                android:id="@+id/loadHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:indeterminateTint="@color/fino_primary"
+                android:visibility="gone" />
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
-        <EditText
-            android:id="@+id/etCari"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Cari kode / nama..."
-            android:background="@drawable/bg_input"
-            android:padding="12dp" />
-        <Button
-            android:id="@+id/btnCari"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cari"
-            android:backgroundTint="@color/fino_primary" />
-    </LinearLayout>
-    <ProgressBar
-        android:id="@+id/loadHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:indeterminateTint="@color/fino_primary"
-        android:visibility="gone" />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvStok"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-    <Button
-        android:id="@+id/btnOut"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Keluar"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/fino_danger" />
-</LinearLayout>
+</ScrollView>
