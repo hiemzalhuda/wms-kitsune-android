@@ -8,8 +8,8 @@ android {
         applicationId "id.my.hiemz.wms"
         minSdk 24
         targetSdk 34
-        versionCode 6
-        versionName "1.5-norefreshbug"
+        versionCode 7
+        versionName "2.0-native"
     }
     buildTypes {
         release {
@@ -29,4 +29,5 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
 }
