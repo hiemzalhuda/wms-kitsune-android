@@ -8,8 +8,8 @@ android {
         applicationId "id.my.hiemz.wms"
         minSdk 24
         targetSdk 34
-        versionCode 5
-        versionName "1.4-smooth"
+        versionCode 6
+        versionName "1.5-norefreshbug"
     }
     buildTypes {
         release {

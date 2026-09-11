@@ -99,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
 
         swipe.setOnRefreshListener(() -> webView.reload());
         swipe.setColorSchemeResources(android.R.color.holo_green_dark);
+        // Refresh hanya aktif saat WebView di posisi paling atas (scrollY==0).
+        // Kalau lagi di tengah/bawah, swipe dimatikan supaya scroll ke atas
+        // tidak ketrigger refresh.
+        webView.setOnScrollChangeListener((v, sx, sy, ox, oy) -> swipe.setEnabled(sy == 0));
 
         if (savedInstanceState == null) webView.loadUrl(HOME_URL);
         else webView.restoreState(savedInstanceState);
